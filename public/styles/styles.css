@@ -1,3 +1,22 @@
 .list-group-item {
   line-height: 2.5;
 }
+.toptwo {
+  align-content: auto;
+
+}
+.leftDiv, .rightDiv {
+  margin-top: 10px;
+  border: 1px solid #000;
+  border-radius: 12px;
+  height: 60vh;
+  background-attachment: lightblue;
+  text-align: center;
+
+}
+.col-sm {
+  margin-top: 20px;
+  border: 1px solid #000;
+  height: 30vh;
+  text-align: center;
+}
