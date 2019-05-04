@@ -20,3 +20,9 @@
   height: 30vh;
   text-align: center;
 }
+
+/* Map Styling */
+#map {
+  height: 600px;  /* The height is 400 pixels */
+  width: 80%;  /* The width is the width of the web page */
+ }
