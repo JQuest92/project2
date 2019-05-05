@@ -94,6 +94,41 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = { lat: 36.1627, lng: -86.7816 };
+  // The map, centered at Uluru
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: uluru
+  });
+  // The marker, positioned at Uluru
+  console.log(google.maps.Marker);
+  marker1 = new google.maps.Marker({
+    position: { lat: 36.22998, lng: -86.76077 },
+    map: map
+  });
+  marker2 = new google.maps.Marker({
+    position: { lat: 36.152962, lng: -86.797653 },
+    map: map
+  });
+  marker3 = new google.maps.Marker({
+    position: { lat: 36.17399, lng: -86.76135 },
+    map: map
+  });
+  marker4 = new google.maps.Marker({
+    position: { lat: 36.188599, lng: -86.746696 },
+    map: map
+  });
+  marker5 = new google.maps.Marker({
+    position: { lat: 36.14987, lng: -86.77948 },
+    map: map
+  });
+}
+
+$(".rightDiv").append(initMap());
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
