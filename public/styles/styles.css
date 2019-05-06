@@ -1,19 +1,58 @@
+/*.navbar.navbar-dark.bg-dark{
+ change nav bar color
+}*/
+
+div {
+  overflow: auto;
+}
+
+.jumbotron.jumbotron-fluid{
+  padding-top: 100px;
+  height: 45vh;
+  background-image:url(https://images.unsplash.com/photo-1478118330274-ff72cf1161a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+  background-repeat: no-repeat;
+  background-size: 1945px;
+ /*  need to make image in jumbotron smaller or crop*/
+}
+.display-4 {
+  color: #ebde2b;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
 .list-group-item {
-  line-height: 2.5;
+  line-height: 2.5;   
 }
 .toptwo {
   align-content: auto;
+  display: block;
+  width: 100%;
+
+  /* .clearfix::after {
+  content: "";
+  clear: both;*/
+  
+  
+}
+.row {
+  margin: 0px;
 
 }
 .leftDiv, .rightDiv {
   margin-top: 10px;
   border: 1px solid #000;
-  border-radius: 12px;
   height: 60vh;
-  background-attachment: lightblue;
   text-align: center;
-
+  flex: 0 0 48%;
 }
+
+.leftDiv {
+  margin: 0 auto 0 0;
+}
+.rightDiv {
+  margin: 0 0 0 auto;
+}
+
 .col-sm {
   margin-top: 20px;
   border: 1px solid #000;
