@@ -144,10 +144,10 @@ function setMarkers(map) {
       animation: google.maps.Animation.DROP,
       title: restaurant[0]
     });
-
-    // click event listener to initiate bounce animation
-    marker.addListener("click", toggleBounce);
   }
+
+  // click event listener to initiate bounce animation
+  marker.addListener("click", toggleBounce);
 
   // toggles map marker animation on/off
   function toggleBounce() {
