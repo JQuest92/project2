@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "dogs4",
-    "database": "project2db",
+    "password": "Newport36",
+    "database": "hot_chicken",
     "host": "localhost",
     "dialect": "mysql"
   },

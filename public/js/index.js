@@ -100,31 +100,64 @@ function initMap() {
   var uluru = { lat: 36.1627, lng: -86.7816 };
   // The map, centered at Uluru
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 11,
     center: uluru
   });
-  // The marker, positioned at Uluru
-  console.log(google.maps.Marker);
-  marker1 = new google.maps.Marker({
-    position: { lat: 36.22998, lng: -86.76077 },
-    map: map
-  });
-  marker2 = new google.maps.Marker({
-    position: { lat: 36.152962, lng: -86.797653 },
-    map: map
-  });
-  marker3 = new google.maps.Marker({
-    position: { lat: 36.17399, lng: -86.76135 },
-    map: map
-  });
-  marker4 = new google.maps.Marker({
-    position: { lat: 36.188599, lng: -86.746696 },
-    map: map
-  });
-  marker5 = new google.maps.Marker({
-    position: { lat: 36.14987, lng: -86.77948 },
-    map: map
-  });
+
+  setMarkers(map);
+}
+
+// Data for the markers consisting of a name, a LatLng and a zIndex for the
+// order in which these markers should display on top of each other.
+var restaurants = [
+  ["Slow Burn", 36.27877, -86.69017],
+  ["Prince's Hot Chicken Shack", 36.22998, -86.76077],
+  ["Prince's Hot Chicken Shack-South", 36.04371, -86.71239],
+  ["Scoreboard Bar & grill", 36.22074, -86.69386],
+  ["400 Degrees Hot Chicken", 36.19855, -86.83752]
+];
+
+function setMarkers(map) {
+  // Adds markers to the map.
+
+  // Marker sizes are expressed as a Size of X,Y where the origin of the image
+  // (0,0) is located in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker increase in the X
+  // direction to the right and in the Y direction down.
+  var image = {
+    url:
+      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+    // This marker is 32 pixels wide by 32 pixels high.
+    size: new google.maps.Size(32, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the image at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+
+  for (var i = 0; i < restaurants.length; i++) {
+    var restaurant = restaurants[i];
+    var marker = new google.maps.Marker({
+      position: { lat: restaurant[1], lng: restaurant[2] },
+      map: map,
+      icon: image,
+      animation: google.maps.Animation.DROP,
+      title: restaurant[0]
+    });
+
+    // click event listener to initiate bounce animation
+    marker.addListener("click", toggleBounce);
+  }
+
+  // toggles map marker animation on/off
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
 }
 
 $(".rightDiv").append(initMap());
