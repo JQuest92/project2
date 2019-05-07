@@ -27,9 +27,8 @@ longitude DECIMAL(11,8),
 phone VARCHAR(12),
 website VARCHAR(200),
 facebook VARCHAR(200),
-id INT UNIQUE,
-Primary Key(id),
-FOREIGN KEY(id) REFERENCES review(restaurant_id) ON UPDATE CASCADE ON DELETE CASCADE
+id INT AUTO_INCREMENT,
+Primary Key(id)
 );
 
 create table user
@@ -37,10 +36,9 @@ create table user
 firstName VARCHAR(100) NOT NULL,
 lastName VARCHAR(100) NOT NULL,
 email VARCHAR(250) NOT NULL,
-id INT UNIQUE,
+id INT UAUTO_INCREMENT,
 code VARCHAR(250), /*possible password field*/
-PRIMARY KEY(id),
-FOREIGN KEY(id) REFERENCES review(user_id) ON UPDATE CASCADE ON DELETE CASCADE
+PRIMARY KEY(id)
 );
 
 
