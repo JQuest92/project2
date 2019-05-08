@@ -96,13 +96,20 @@ var handleDeleteBtnClick = function() {
 
 // Initialize and add the map
 function initMap() {
+  console.log("running");
+
   // The location of Uluru
   var uluru = { lat: 36.1627, lng: -86.7816 };
   // The map, centered at Uluru
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 11,
-    center: uluru
+    center: uluru,
+    zoom: 11
   });
+
+  console.log("the map instance");
+  console.log(map);
+  google.maps.event.trigger(map, "resize");
+
 
   setMarkers(map);
 }
@@ -159,7 +166,7 @@ function setMarkers(map) {
   }
 }
 
-$(".rightDiv").append(initMap());
+// $(".rightDiv").append(initMap());
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
