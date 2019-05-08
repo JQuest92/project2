@@ -77,6 +77,10 @@ div {
   width: 80%;  /* The width is the width of the web page */
  }
 
+ #map * { 
+  overflow: visible;
+ }
+
  #footer {
    height: 400px;
  }
