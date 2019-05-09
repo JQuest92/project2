@@ -61,6 +61,7 @@ module.exports = function(app) {
 
 
   // Get all restaurants
+
   app.get("/api/restaurants", function(req, res) {
     db.restaurant.findAll({}).then(function(dbRestaurants) {
       res.json(dbRestaurants);
