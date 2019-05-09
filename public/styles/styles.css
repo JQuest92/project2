@@ -45,12 +45,6 @@ div {
   margin: 0 0 0 auto;
 }
 
-.col-sm {
-  margin-top: 20px;
-  border: 1px solid #000;
-  height: 30vh;
-  text-align: center;
-}
 .toptwo {
   align-content: auto;
 
@@ -66,9 +60,17 @@ div {
 }
 .col-sm {
   margin-top: 20px;
-  border: 1px solid #000;
-  height: 30vh;
+  border: 2px solid #000;
+  height: 50vh;
   text-align: center;
+  border-radius: 30px;
+  background: lavender;
+  box-shadow: 5px 5px 10px grey;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 /* Map Styling */
@@ -84,3 +86,14 @@ div {
  #footer {
    height: 400px;
  }
+
+ .userInfo {
+  width: 60%;
+  height: 40vh;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 30px;
+  background: antiquewhite;
+  box-shadow: 5px 5px 10px grey;
+}
