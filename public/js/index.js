@@ -215,7 +215,7 @@ function setMarkers() {
 
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
-      maxWidth: 200
+      maxWidth: 400
     });
 
     marker.addListener("mouseover", function() {

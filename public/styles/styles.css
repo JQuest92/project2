@@ -73,8 +73,8 @@ div {
 
 /* Map Styling */
 #map {
-  height: 600px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
+  height: 600px;
+  width: 100%;
   margin: auto;
  }
 
