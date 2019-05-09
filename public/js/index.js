@@ -94,6 +94,10 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
 // ------------- MAPS CODE STARTS ------------------- //
 
 var dbRestaurants = [];
@@ -164,32 +168,26 @@ function setMarkers(map) {
       animation: google.maps.Animation.DROP,
       title: restaurant[0]
     });
+
+    marker.addListener("click", toggleBounce);
+    marker.addListener("click", showInfoWindow);
   }
 
   var contentString =
     // eslint-disable-next-line prettier/prettier
     "<div id=\"content\">" +
+    // eslint-disable-next-line prettier/prettier +
     // eslint-disable-next-line prettier/prettier
-    "<div id=\"siteNotice\">" +
-    "</div>" +
-    // eslint-disable-next-line prettier/prettier
-    "<h1 id=\"firstHeading\" class=\"firstHeading\">Uluru</h1>" +
+    "<h5 id=\"firstHeading\" class=\"firstHeading\">Hot Chicken</h5>" +
     // eslint-disable-next-line prettier/prettier
     "<div id=\"bodyContent\">" +
-    "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-    "sandstone rock formation in the southern part of the " +
-    "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-    "south west of the nearest large town, Alice Springs; 450&#160;km " +
-    "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-    "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-    "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-    "Aboriginal people of the area. It has many springs, waterholes, " +
-    "rock caves and ancient paintings. Uluru is listed as a World " +
-    "Heritage Site.</p>" +
+    "<p>Address: </p>" +
     // eslint-disable-next-line prettier/prettier
-    "<p>Attribution: Uluru, <a href=\"https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194\">" +
-    "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-    "(last visited June 22, 2009).</p>" +
+    "<p><a href=\"https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194\">" +
+    "Website</a> " +
+    // eslint-disable-next-line prettier/prettier
+    "<p><a href=\"https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194\">" +
+    "Facebook</a> " +
     "</div>" +
     "</div>";
 
@@ -198,7 +196,6 @@ function setMarkers(map) {
   });
 
   // click event listener to initiate bounce animation
-  marker.addListener("click", toggleBounce, showInfoWindow);
 
   // toggles map marker animation on/off
   function toggleBounce() {
@@ -214,7 +211,3 @@ function setMarkers(map) {
     infowindow.open(map, marker);
   }
 }
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
