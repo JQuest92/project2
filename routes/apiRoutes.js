@@ -2,8 +2,8 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all restaurants
-  app.get("/api/restaurants", function(req, res) {
-    db.Restaurant.findAll({}).then(function(dbRestaurants) {
+  app.get("/api/restaurant", function(req, res) {
+    db.restaurant.findAll({}).then(function(dbRestaurants) {
       res.json(dbRestaurants);
     });
   });
