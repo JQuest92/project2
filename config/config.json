@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "00790086",
+    "password": "",
     "database": "hot_chicken",
     "host": "localhost",
     "dialect": "mysql"
