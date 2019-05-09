@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: DataTypes.INTEGER
   },
 
     // The email cannot be null, and must be a proper email before creation
