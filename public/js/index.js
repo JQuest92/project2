@@ -196,17 +196,16 @@ function setMarkers() {
       dbRestaurants[i].state + " " + 
       dbRestaurants[i].zip +
       "</p>" +
-      "<p>Phone: " +
+      "<p>" +
       dbRestaurants[i].phone +
-      "</p>" +
-      "<p><a href=" +
+      " | <a class='info-window' href=" +
       dbRestaurants[i].website +
       ">" +
-      "Website</a> " +
-      "<p><a href=" +
+      "Website</a>" +
+      " | <a class='info-window' href=" +
       dbRestaurants[i].facebook +
       ">" +
-      "Facebook</a> " +
+      "Facebook</a></p>" +
       "</div>" +
       "</div>";
 
