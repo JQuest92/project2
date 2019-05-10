@@ -10,7 +10,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.restaurant.findAll({}).then(function(dbRestaurants) {
+    db.Restaurant.findAll({}).then(function(dbRestaurants) {
       res.render("index", {
         msg: "Welcome!",
         restaurant: dbRestaurants
