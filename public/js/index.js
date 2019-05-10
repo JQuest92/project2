@@ -100,16 +100,21 @@
 
 // ------------- MAPS CODE STARTS ------------------- //
 
-// var dbRestaurants = [];
+$(document).ready(function() {
 
-// getDbRestaurants();
+  var dbRestaurants = [];
 
-// function getDbRestaurants() {
-//   $.get("/api/restaurants", function(data) {
-//     dbRestaurants = data;
-//     console.log(dbRestaurants);
-//   });
-// }
+  getDbRestaurants();
+
+  function getDbRestaurants() {
+    $.get("/api/restaurants", function(data) {
+      dbRestaurants = data;
+      console.log(data);
+      console.log(dbRestaurants);
+    });
+  }
+})
+
 
 var map;
 var InforObj = [];
@@ -188,7 +193,10 @@ function setMarkers() {
       "</h5>" +
       "<div id='bodyContent'>" +
       "<p>Address: " +
-      restaurants[i].address +
+      restaurants[i].address + " " + 
+      restaurants[i].city + ", " + 
+      restaurants[i].state + " " + 
+      restaurants[i].zip +
       "</p>" +
       "<p>Phone: " +
       restaurants[i].phone +
