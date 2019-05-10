@@ -35,7 +35,7 @@ module.exports = function(app) {
   //       example: dbExample
   //     });
   //   });
-  // });
+  });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
@@ -70,4 +70,4 @@ module.exports = function(app) {
   // app.get("*", function(req, res) {
   //   res.render("404");
   // });
-};
+}
