@@ -232,11 +232,11 @@ function setMarkers() {
       InforObj[0] = infowindow;
     });
 
-    marker.addListener("mouseout", function () {
-      closeOtherInfo();
-     infowindow.close();
-      InforObj[0] = infowindow;
-    });
+    // marker.addListener("mouseout", function () {
+    //   closeOtherInfo();
+    //  infowindow.close();
+    //   InforObj[0] = infowindow;
+    // });
 
     // // toggles map marker animation on/off
     marker.addListener("click", function() {
