@@ -1,9 +1,8 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = function (app) {
 
-
+module.exports = function(app) {
 
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -23,13 +22,16 @@ module.exports = function (app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    }).then(function () {
-      res.redirect(307, "/api/login");
-    }).catch(function (err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
   //
   // Route for logging user out
@@ -43,8 +45,7 @@ module.exports = function (app) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
-    }
-    else {
+    } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -53,12 +54,6 @@ module.exports = function (app) {
       });
     }
   });
-
-
-
-
-
-
 
   // Get all restaurants
 

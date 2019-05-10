@@ -100,16 +100,19 @@
 
 // ------------- MAPS CODE STARTS ------------------- //
 
-// var dbRestaurants = [];
+  
+var dbRestaurants = [];
 
-// getDbRestaurants();
+function getDbRestaurants() {
+  $.get("/api/restaurants", function(data) {
+    dbRestaurants = data;
+    console.log(data);
+    console.log(dbRestaurants[0].latitude);
+  });
+}
 
-// function getDbRestaurants() {
-//   $.get("/api/restaurants", function(data) {
-//     dbRestaurants = data;
-//     console.log(dbRestaurants);
-//   });
-// }
+getDbRestaurants();
+
 
 var map;
 var InforObj = [];
@@ -177,40 +180,41 @@ function setMarkers() {
   };
 
   // Adds markers to the map.
-  for (var i = 0; i < restaurants.length; i++) {
+  for (var i = 0; i < dbRestaurants.length; i++) {
     // info window content
     var contentString =
       "<div id='siteNotice'>" +
       "</div>" +
       "<div id='content'>" +
       "<h5 id='firstHeading' class='firstHeading'>" +
-      restaurants[i].name +
+      dbRestaurants[i].name +
       "</h5>" +
       "<div id='bodyContent'>" +
       "<p>Address: " +
-      restaurants[i].address +
+      dbRestaurants[i].address + " " + 
+      dbRestaurants[i].city + ", " + 
+      dbRestaurants[i].state + " " + 
+      dbRestaurants[i].zip +
       "</p>" +
-      "<p>Phone: " +
-      restaurants[i].phone +
-      "</p>" +
-      "<p><a href='" +
-      restaurants[i].website +
-      "'>" +
-      "Website</a> " +
-      "<p><a href='" +
-      restaurants[i].facebook +
-      "'>" +
-      "Facebook</a> " +
+      "<p>" +
+      dbRestaurants[i].phone +
+      " | <a class='info-window' href=" +
+      dbRestaurants[i].website +
+      ">" +
+      "Website</a>" +
+      " | <a class='info-window' href=" +
+      dbRestaurants[i].facebook +
+      ">" +
+      "Facebook</a></p>" +
       "</div>" +
       "</div>";
 
-    // var restaurant = restaurants[i];
     const marker = new google.maps.Marker({
-      position: { lat: restaurants[i].latitude, lng: restaurants[i].longitude },
+      position: { lat: parseFloat(dbRestaurants[i].latitude), lng: parseFloat(dbRestaurants[i].longitude) },
       map: map,
       icon: image,
       animation: google.maps.Animation.DROP,
-      title: restaurants[i].name
+      title: dbRestaurants[i].name
     });
 
     const infowindow = new google.maps.InfoWindow({
@@ -218,17 +222,17 @@ function setMarkers() {
       maxWidth: 400
     });
 
-    marker.addListener("mouseover", function() {
+    marker.addListener("click", function() {
       closeOtherInfo();
       infowindow.open(marker.get("map"), marker);
       InforObj[0] = infowindow;
     });
 
-    marker.addListener("mouseout", function () {
-      closeOtherInfo();
-     infowindow.close();
-      InforObj[0] = infowindow;
-    });
+    // marker.addListener("mouseout", function () {
+    //   closeOtherInfo();
+    //  infowindow.close();
+    //   InforObj[0] = infowindow;
+    // });
 
     // // toggles map marker animation on/off
     marker.addListener("click", function() {
@@ -260,7 +264,7 @@ function initMap() {
   // The map, centered on Nashville
   map = new google.maps.Map(document.getElementById("map"), {
     center: centerCords,
-    zoom: 11
+    zoom: 10
   });
 
   // console.log("the map instance");

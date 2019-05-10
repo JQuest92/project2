@@ -84,6 +84,13 @@ a {
   overflow: visible;
  }
 
+ .info-window {
+   color: black;
+   text-decoration: underline;
+ }
+
+ /* ----- */
+
  #footer {
    height: 400px;
  }

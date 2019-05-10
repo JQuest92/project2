@@ -18,7 +18,6 @@ module.exports = function(app) {
     });
   });
 
-
   // Load index page
   app.get("/user", function(req, res) {
     // Here you need code to get user
@@ -28,15 +27,14 @@ module.exports = function(app) {
   app.get("/example", function(req, res) {
     res.render("example");
 
-  // // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
-
+    // // Load example page and pass in an example by id
+    // app.get("/example/:id", function(req, res) {
+    //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    //     res.render("example", {
+    //       example: dbExample
+    //     });
+    //   });
+  });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
@@ -45,13 +43,12 @@ module.exports = function(app) {
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
-//
+  //
   // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be 
+  // If a user who is not logged in tries to access this route they will be
   //redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
-
   });
   // // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
