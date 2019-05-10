@@ -40,7 +40,3 @@ id INT UAUTO_INCREMENT,
 code VARCHAR(250), /*possible password field*/
 PRIMARY KEY(id)
 );
-
-
-
-
