@@ -62,13 +62,17 @@ module.exports = function(app) {
 
   // Post all visits
 
-  app.post("/api/visited", function(req,res){
-    console.log("\n\n\n\n\n\n\n\nMade it!\n---------\n" + req.body.restaurantName + "\n\n\n\n\n")
+  app.post("/api/visited", function(req, res) {
+    console.log(
+      "\n\n\n\n\n\n\n\nMade it!\n---------\n" +
+        req.body.restaurantName +
+        "\n\n\n\n\n"
+    );
     db.Visit.create({
       restaurantName: req.body.restaurantName,
       userName: req.body.userName
-    }).then(function(dbVisited){
-        res.json(dbVisited);
+    }).then(function(dbVisited) {
+      res.json(dbVisited);
     });
   });
 
@@ -81,7 +85,6 @@ module.exports = function(app) {
       res.json(dbVisited);
     });
   });
-
 
   // Create a new example
   // app.post("/api/examples", function(req, res) {
