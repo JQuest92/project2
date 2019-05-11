@@ -2,20 +2,24 @@
  change nav bar color
 }*/
 
+body {
+  font-family: "Fjalla One", sans-serif;
+}
+
 div {
   overflow: auto;
 }
 
 .jumbotron.jumbotron-fluid{
-  padding-top: 100px;
+  padding-top: 5px;
   background-image:url(https://images.unsplash.com/photo-1478118330274-ff72cf1161a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
   background-repeat: no-repeat;
   background-size: 1945px;
  /*  need to make image in jumbotron smaller or crop*/
 }
 .display-4 {
-  color: #ebde2b;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #FE310C;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   text-align: center;
 }
 
@@ -40,6 +44,7 @@ div {
 
 .leftDiv {
   margin: 0 auto 0 0;
+  font-size: 21px;
 }
 .rightDiv {
   margin: 0 0 0 auto;
@@ -104,4 +109,8 @@ a {
   border-radius: 30px;
   background: antiquewhite;
   box-shadow: 5px 5px 10px grey;
+}
+
+.lead {
+  text-align: center;
 }
