@@ -10,7 +10,8 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.restaurant.findAll({}).then(function(dbRestaurants) {
+    db.Restaurant.findAll({}).then(function(dbRestaurants) {
+      console.log(dbRestaurants[0].dataValues.name);
       res.render("index", {
         msg: "Welcome!",
         restaurant: dbRestaurants
@@ -25,8 +26,6 @@ module.exports = function(app) {
     res.render("user");
   });
 
-  app.get("/example", function(req, res) {
-    res.render("example");
 
   // // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
