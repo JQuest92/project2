@@ -56,6 +56,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       field: "facebook"
     }
+  },
+  {
+    freezeTableName: true
   });
   return Restaurant;
 };

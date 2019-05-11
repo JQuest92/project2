@@ -60,6 +60,29 @@ module.exports = function(app) {
     });
   });
 
+  // Post all visits
+
+  app.post("/api/visited", function(req,res){
+    console.log("\n\n\n\n\n\n\n\nMade it!\n---------\n" + req.body.restaurantName + "\n\n\n\n\n")
+    db.Visit.create({
+      restaurantName: req.body.restaurantName,
+      userName: req.body.userName
+    }).then(function(dbVisited){
+        res.json(dbVisited);
+    });
+  });
+
+  //get all visits
+
+  app.get("/api/visited", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Visit.findAll({}).then(function(dbVisited) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbVisited);
+    });
+  });
+
+
   // Create a new example
   // app.post("/api/examples", function(req, res) {
   //   db.Example.create(req.body).then(function(dbExample) {
