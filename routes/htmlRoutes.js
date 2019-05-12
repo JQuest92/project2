@@ -24,15 +24,6 @@ module.exports = function(app) {
     res.render("user");
   });
 
-  // // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
