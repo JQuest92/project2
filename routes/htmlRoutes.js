@@ -1,4 +1,5 @@
 var db = require("../models");
+require("dotenv").config();
 
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
@@ -13,7 +14,8 @@ module.exports = function(app) {
     db.Restaurant.findAll({}).then(function(dbRestaurants) {
       res.render("index", {
         msg: "Welcome!",
-        restaurant: dbRestaurants
+        restaurant: dbRestaurants,
+        mapKey: process.env.mapKey
       });
     });
   });
