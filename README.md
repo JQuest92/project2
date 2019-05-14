@@ -3,6 +3,8 @@
 Nashville Hot Chicken Adventure is an interactive web application allowing users to eat their way through Nashville’s best hot chicken establishments. Users can create an account to track and map their progress in conquering the hottest of chickens.  
 
 
+![Home](./public/images/home.gif)
+
 ## Installation
 
 If you are cloning/downloading the GitHub repo, please be sure to use the package manager [NPM](https://www.npmjs.com/) to install the needed packages for the project to run through node and express:
@@ -44,6 +46,8 @@ https://mysterious-scrubland-71212.herokuapp.com/
 
 ## Project Technical Specs
 Nashville Hot Chicken Adventure is an express and node served application that is hosted on heroku with a jawsdb database.  The application utilizes passport js and bcrypt to authenticate users.  Additionally, Sequelize models are used to access the jawsdb (mysql locally).
+
+![Tech](./public/images/tech.png)
 
 ## Contributors
 Denise Martin: Lead Front-End Designer
