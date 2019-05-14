@@ -1,4 +1,6 @@
 var db = require("../models");
+require("dotenv").config();
+
 var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -8,7 +10,8 @@ module.exports = function(app) {
     db.Restaurant.findAll({}).then(function(dbRestaurants) {
       res.render("index", {
         msg: "Welcome!",
-        restaurant: dbRestaurants
+        restaurant: dbRestaurants,
+        mapKey: process.env.mapKey
       });
     });
   });
